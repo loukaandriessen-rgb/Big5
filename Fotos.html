@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foto's van de Big 5</title>
+    <style>
+        body {
+            background-color: rgb(247, 238, 204);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 100px;
+            margin-bottom: 0;
+            text-align: center;
+            color: coral;
+            text-shadow: -1px 0 rgb(0, 0, 0), 0 1px rgb(0, 0, 0), 1px 0 rgb(0, 0, 0), 0 -1px rgb(0, 0, 0);
+        }
+
+        .slideshow-container {
+            max-width: 650px;
+            position: relative;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+            margin: 10px;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            z-index: 10;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .highlight {
+            color: rgb(255, 204, 1);
+        }
+
+        .navbar {
+            position: fixed;      
+            left: 20px;          
+            top: 50%;             
+            transform: translateY(-50%); 
+            display: flex;
+            flex-direction: column; 
+            gap: 15px;            
+            z-index: 1000;
+        }
+
+        .button {
+            background-color: rgba(255, 255, 255, 0); 
+            border: 2px dashed #ffc400;
+            color: rgb(0, 0, 0);
+            padding: 15px 25px;
+            text-decoration: none;
+            display: block;
+            border-radius: 25px;
+            text-align: center;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #ffc400;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="color:rgb(255, 119, 0);">THE BIG 5</h1>
+<img src="big 4.png" alt="big 5" style="width:100%;height:auto;">
+
+<!-- De knoppen staan nu in deze div aan de rechterkant -->
+<div class="navbar">
+    <a href="index.html" class="button">Home</a>
+    <a href="Magic.html" class="button">Magic</a>
+</div>
+
+<div class="slideshow-container">
+    <div class="mySlides fade">
+        <div class="numbertext">1 / 8</div>
+        <img src="Olifant.jpg" style="width:100%">
+        <div class="text"><span class="highlight"><strong>Olifant</strong></span></div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">2 / 8</div>
+        <img src="Olifanten.jpg" style="width:100%">
+        <div class="text"><span class="highlight"><strong>Olifant</strong></span></div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">3 / 8</div>
+        <img src="Leeuwen.jpg" style="width:100%">
+        <div class="text"><span class="highlight"><strong>Leeuw</strong></span></div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">4 / 8</div>
+        <img src="Leeuwe.jpg" style="width:100%">
+        <div class="text"><span class="highlight"><strong>Leeuw</strong></span></div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">5 / 8</div>
+        <img src="Buffel.jpg" style="width:100%">
+        <div class="text"><span class="highlight"><strong>Buffel</strong></span></div>
+    </div>
+
+     <div class="mySlides fade">
+        <div class="numbertext">6 / 8</div>
+        <img src="Buffels.jpg" style="width:100%">
+        <div class="text"><span class="highlight"><strong>Buffel</strong></span></div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">7 / 8</div>
+        <img src="Luipaard.jpg" style="width:100%">
+        <div class="text"><span class="highlight"><strong>Luipaard</strong></span></div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">8 / 8</div>
+        <img src="Neushoorn.jpg" style="width:100%">
+        <div class="text"><span class="highlight"><strong>Neushoorn</strong></span></div>
+    </div>
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+</div>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
+</script>
+
+</body>
+</html>

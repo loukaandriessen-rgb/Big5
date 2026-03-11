@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The big 5</title>
+    <style>
+body {
+  background-color: rgb(247, 238, 204);
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 100px;
+  margin-bottom: 0;
+  text-align: center;
+  color: coral;
+  text-shadow: -1px 0 rgb(0,0,0), 0 1px rgb(0,0,0), 1px 0 rgb(0,0,0), 0 -1px rgb(0,0,0);
+}
+
+h6 {
+  margin: 20px
+}
+
+.sticky-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  background-color: rgb(247, 238, 204);
+  z-index: 1000;
+}
+
+.animals-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: nowrap;
+}
+
+.button {
+  background-color: rgba(235, 233, 228, 0);
+  border: 2px dashed #ffc400;
+  color: rgb(0,0,0);
+  padding: 15px 32px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ffc400;
+  color: white;
+}
+
+.button:active {
+  background-color: #ff8a05;
+  transform: scale(0.87);
+}
+
+.animal-btn {
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  outline: none;
+}
+
+.animal-olifant { background-image: url('olifant.jpg'); }
+.animal-leeuw { background-image: url('leeuwen.jpg'); }
+.animal-buffel { background-image: url('buffel.jpg'); }
+.animal-luipaard { background-image: url('luipaard.jpg'); }
+.animal-neushoorn { background-image: url('Neushoorn.jpg'); }
+
+.animal-btn:hover {
+  transform: scale(1.1);
+  border-color: #ff8a05;
+}
+    </style>
+</head>
+<body>
+<h6> Louka Andriessen</h6>
+<h1 style="color:rgb(255, 119, 0);">THE BIG 5</h1>
+<img src="big 4.png" alt="big 5" style="width:100%;height:auto;">
+
+<div class="sticky-row">
+  <a href="index.html" class="button">Home</a>
+  <a href="Fotos.html" class="button">Foto's</a>
+</div>
+<br>
+<br>
+<br>
+<div class="animals-row">
+  <button class="animal-btn animal-olifant" onclick="playSound('olifant')"></button>
+  <button class="animal-btn animal-leeuw" onclick="playSound('leeuw')"></button>
+  <button class="animal-btn animal-buffel" onclick="playSound('buffel')"></button>
+  <button class="animal-btn animal-luipaard" onclick="playSound('luipaard')"></button>
+  <button class="animal-btn animal-neushoorn" onclick="playSound('neushoorn')"></button>
+</div>
+
+<audio id="olifant" src="olifant geluid.mp3"></audio>
+<audio id="leeuw" src="leeuw geluid.mp3"></audio>
+<audio id="buffel" src="buffel geluid.mp3"></audio>
+<audio id="luipaard" src="leopard growls.mp3"></audio>
+<audio id="neushoorn" src="neushoorn geluid.mp3"></audio>
+
+<script>
+function playSound(soundId){
+    var geluid = document.getElementById(soundId);
+    geluid.currentTime = 0;
+    geluid.play();
+}
+function playSound(soundId) {
+    // Stop alle geluiden
+    const allSounds = ['olifant','leeuw','buffel','luipaard','neushoorn'];
+    allSounds.forEach(id => {
+        const audio = document.getElementById(id);
+        audio.pause();
+        audio.currentTime = 0;
+    });
+
+    // Speel het nieuwe geluid
+    const geluid = document.getElementById(soundId);
+    geluid.play();
+}
+</script>
+</body>
+</html>

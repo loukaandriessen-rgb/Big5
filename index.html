@@ -10,18 +10,10 @@ body {
   padding: 0;
 }
 
-h1 {
-  font-size: 100px;
-  margin-bottom: 0;
-  text-align: center;
-  color: coral;
-  text-shadow: -1px 0 rgb(0, 0, 0), 0 1px rgb(0, 0, 0), 1px 0 rgb(0, 0, 0), 0 -1px rgb(0, 0, 0);
+/* Zorgt dat alle tekst en koppen het standaard lettertype gebruiken */
+h2, h3, h4, h6, p, li {
+  font-family: serif; 
 }
-
-h3, h2 {
-  font-family: 'Montserrat', sans-serif;
-}
-
 
 h2 a {
   font-size: 16px;
@@ -32,18 +24,19 @@ h2, p, h3, h4, ul, h6 {
   margin: 20px
 }
 
+h3{font-size: 25px;}
 h2, h3 {
   scroll-margin: 90px;
 }
-
+p {font-size: 20px;}
 .navbar {
   position: sticky;
   top: 0;
   background-color: rgb(247, 238, 204);
   padding: 10px;
   z-index: 1000;
+  text-align: center;
 }
-
 
 .button {
   background-color: rgba(235, 233, 228, 0); 
@@ -54,17 +47,11 @@ h2, h3 {
   display: inline-block;
   margin: 4px 2px;
   border-radius: 25px;
+  font-family: inherit; 
+  font-size: 18px;
+  cursor: pointer;
+  outline: none;
 }
-
-
-.button1 {border: 2px dashed #ffc400;}
-.button2 {border: 2px dashed #ffc400;}
-.button3 {border: 2px dashed #ffc400;}
-.button4 {border: 2px dashed #ffc400;}
-.button5 {border: 2px dashed #ffc400;}
-.button6 {border: 2px dashed #ffc400;}
-.button7 {border: 2px dashed #ffc400;}
-.button8 {border: 2px dashed #ffc400;}
 
 .button:hover {
     background-color: #ffc400;
@@ -76,6 +63,43 @@ h2, h3 {
   transform: scale(0.87);   
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(247, 238, 204);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1001;
+  border-radius: 8px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px dashed #ffc400;
+  font-family: inherit;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ffc400;
+  color: white;
+}
+
 .highlight {
   color: rgb(235, 139, 65);
 }
@@ -84,55 +108,45 @@ ul {
     list-style: none;
 }
 
-.leeuw li::before {
-    content: "🦁 ";
-}
-
-.olifant li::before {
-    content: "🐘 ";
-}
-
-.buffel li::before {
-    content: "🐃 ";
-}
-
-.luipaard li::before {
-    content: "🐆 ";
-}
-
-.neushoorn li::before {
-    content: "🦏 ";
-}
+.leeuw li::before { content: "🦁 "; }
+.olifant li::before { content: "🐘 "; }
+.buffel li::before { content: "🐃 "; }
+.luipaard li::before { content: "🐆 "; }
+.neushoorn li::before { content: "🦏 "; }
 
 .leeuw li, .luipaard li, .neushoorn li, .olifant li, .buffel li {
   margin-bottom: 10px;
 }
 </style>
 <body>
-<h6> Louka Andriessen</h6>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
-<h1 style="color:rgb(255, 119, 0);">THE BIG 5</h1>
-<img src="big 4.png" alt="big 5" style="width:100%;height:auto;">
+<h6> Louka Andriessen</h6>
+
+<img src="big 5.png" alt="big 5" style="display:block; margin:0 auto; width:100%; max-width:800px; height:auto;">
+
 <div class="navbar">
-<a href="#Home" class="button">Home</a>
-<a href="#Olifant" class="button">Olifant</a>
-<a href="#Leeuw" class="button">Leeuw</a>
-<a href="#Buffel" class="button">Buffel</a>
-<a href="#Luipaard" class="button">Luipaard</a>
-<a href="#Neushoorn" class="button">Neushoorn</a>
-<a href="Fotos.html" class="button">Foto's</a>
-<a href="Magic.html" class="button">Magic</a>
+  <a href="#Home" class="button">Home</a>
+
+  <div class="dropdown">
+    <button class="button">Dieren ▼</button>
+    <div class="dropdown-content">
+      <a href="#Olifant">Olifant</a>
+      <a href="#Leeuw">Leeuw</a>
+      <a href="#Buffel">Buffel</a>
+      <a href="#Luipaard">Luipaard</a>
+      <a href="#Neushoorn">Neushoorn</a>
+    </div>
+  </div>
+
+  <a href="Fotos.html" class="button">Foto's</a>
+  <a href="Magic.html" class="button">Magic</a>
 </div>
 
 <div>
 <h2 id="Home">Ontdek de wilde pracht van Afrika
     <a href="https://www.naturescanner.nl/afrika/activiteiten/big-five-in-afrika">(Reistips en beste locaties)</a>
 </h2> 
-<p>De Big Five is een term die oorspronkelijk uit de jachtwereld komt. Jagers gebruikten deze naam niet voor de grootste dieren, maar voor de vijf gevaarlijkste dieren om te voet op te jagen in Afrika.
-Tegenwoordig gebruiken we de term gelukkig vooral in de context van safari's en natuurbescherming. Het zien van deze vijf machtige dieren in het wild is voor velen een absolute droom.</p>
-<br>
-
+<p>De Big Five is een term die oorspronkelijk uit de jachtwereld komt. Jagers gebruikten deze naam niet voor de grootste dieren, maar voor de vijf gevaarlijkste dieren om te voet op te jagen in Afrika. Tegenwoordig gebruiken we de term gelukkig vooral in de context van safari's en natuurbescherming. Het zien van deze vijf machtige dieren in het wild is voor velen een absolute droom.</p>
 <p><em>Hieronder volgt een overzicht van deze iconische bewoners van de savanne:</em></p>
 <br>
 
@@ -217,5 +231,3 @@ Tegenwoordig gebruiken we de term gelukkig vooral in de context van safari's en 
 
 </body>
 </html>
-
-

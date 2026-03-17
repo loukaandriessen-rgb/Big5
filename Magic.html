@@ -1,73 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>The big 5</title>
-    <style>
-body {
-  background-color: rgb(247, 238, 204);
-  margin: 0;
-  padding: 0;
-}
-
-h1 {
-  font-size: 100px;
-  margin-bottom: 0;
-  text-align: center;
-  color: coral;
-  text-shadow: -1px 0 rgb(0,0,0), 0 1px rgb(0,0,0), 1px 0 rgb(0,0,0), 0 -1px rgb(0,0,0);
-}
-
-h6 {
-  margin: 20px
-}
+<title>The Big 5 Magic</title>
+<style>
+body { background-color: rgb(247, 238, 204); margin: 0; padding: 0; }
+h6, h2, h3, .figure-label, #result, #quiz { font-family: sans-serif; }
+h6 { margin: 20px; }
 
 .sticky-row {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
+  display: flex; justify-content: center; gap: 10px; padding: 10px;
+  position: sticky; top: 0; background-color: rgb(247, 238, 204); z-index: 1000;
+}
+
+.navbar {
   position: sticky;
   top: 0;
   background-color: rgb(247, 238, 204);
+  padding: 10px;
   z-index: 1000;
-}
-
-.animals-row {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-  flex-wrap: nowrap;
+  text-align: center;
 }
 
 .button {
-  background-color: rgba(235, 233, 228, 0);
+  background-color: rgba(235, 233, 228, 0); 
   border: 2px dashed #ffc400;
-  color: rgb(0,0,0);
+  color: rgb(0, 0, 0);
   padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
   border-radius: 25px;
+  font-family: inherit; 
+  font-size: 18px;
   cursor: pointer;
+  outline: none;
 }
 
 .button:hover {
-  background-color: #ffc400;
-  color: white;
+    background-color: #ffc400;
+    color: white;
 }
 
 .button:active {
   background-color: #ff8a05;
-  transform: scale(0.87);
+  transform: scale(0.87);   
 }
 
+.animals-row { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
 .animal-btn {
-  width: 175px;
-  height: 175px;
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  outline: none;
+  width: 175px; height: 175px; border-radius: 50%; background-size: cover;
+  background-position: center; border: 2px dashed #ffc400; cursor: pointer;
 }
 
 .animal-olifant { background-image: url('olifant.jpg'); }
@@ -76,24 +58,66 @@ h6 {
 .animal-luipaard { background-image: url('luipaard.jpg'); }
 .animal-neushoorn { background-image: url('Neushoorn.jpg'); }
 
-.animal-btn:hover {
-  transform: scale(1.1);
-  border-color: #ff8a05;
+.interactive-section {
+  background-color: white; padding: 30px; border-radius: 20px;
+  margin: 40px auto; max-width: 1100px; box-shadow: 0 0 15px rgba(0,0,0,0.1); text-align: center;
 }
-    </style>
+
+.comparison-area {
+  background-color: #f0f0f0; 
+  border-bottom: 45px solid #5d4037; 
+  margin: 20px auto; 
+  min-height: 450px; height: auto;
+  display: flex; 
+  align-items: flex-end; 
+  justify-content: center;
+  gap: 80px; 
+  border-radius: 10px; 
+  padding: 20px 20px 0 20px; 
+  position: relative;
+}
+
+.figure-container {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: flex-end; 
+  width: auto; 
+  flex-shrink: 0; position: relative;
+}
+
+.figure-image { 
+  display: block; 
+  width: auto; 
+  height: auto; 
+}
+
+#user-img { margin-bottom: 0px; }
+
+.figure-label {
+  position: absolute; bottom: -38px; font-size: 16px; font-weight: bold;
+  color: white; width: 200px;
+  text-align: center; z-index: 10;
+}
+
+.select-btn {
+  background-color: #ffc400; border: none; padding: 12px 20px;
+  border-radius: 15px; cursor: pointer; font-weight: bold; margin: 5px;
+}
+
+#quiz { max-width: 800px; margin: 40px auto; text-align: center; }
+.question { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+#result { font-size: 30px; text-align: center; margin-top: 20px; font-weight: bold; }
+</style>
 </head>
 <body>
-<h6> Louka Andriessen</h6>
-<h1 style="color:rgb(255, 119, 0);">THE BIG 5</h1>
-<img src="big 4.png" alt="big 5" style="width:100%;height:auto;">
 
+<h6> Louka Andriessen</h6>
+
+<img src="big 5.png" alt="big 5" style="width:100%;height:auto;">
 <div class="sticky-row">
   <a href="index.html" class="button">Home</a>
   <a href="Fotos.html" class="button">Foto's</a>
 </div>
-<br>
-<br>
-<br>
+
 <div class="animals-row">
   <button class="animal-btn animal-olifant" onclick="playSound('olifant')"></button>
   <button class="animal-btn animal-leeuw" onclick="playSound('leeuw')"></button>
@@ -108,25 +132,113 @@ h6 {
 <audio id="luipaard" src="leopard growls.mp3"></audio>
 <audio id="neushoorn" src="neushoorn geluid.mp3"></audio>
 
-<script>
-function playSound(soundId){
-    var geluid = document.getElementById(soundId);
-    geluid.currentTime = 0;
-    geluid.play();
-}
-function playSound(soundId) {
-    // Stop alle geluiden
-    const allSounds = ['olifant','leeuw','buffel','luipaard','neushoorn'];
-    allSounds.forEach(id => {
-        const audio = document.getElementById(id);
-        audio.pause();
-        audio.currentTime = 0;
-    });
+<h2 style="text-align: center; margin-top: 50px;">Welke Big Five ben jij?</h2>
+<div id="quiz"></div>
+<div id="result"></div>
 
-    // Speel het nieuwe geluid
-    const geluid = document.getElementById(soundId);
-    geluid.play();
+<div class="interactive-section">
+  <h2>📏 Vergelijk je lengte!</h2>
+  <input type="number" id="user-height" placeholder="Jouw lengte (cm)" oninput="updateUserHeight()">
+
+  <div class="comparison-area">
+    <div id="user-figure" class="figure-container" style="display: none;">
+      <img id="user-img" src="mens.png" class="figure-image">
+      <div class="figure-label">Jij (<span id="u-cm">0</span> cm)</div>
+    </div>
+    <div id="animal-figure" class="figure-container" style="display: none;">
+      <img id="animal-img" src="" class="figure-image">
+      <div class="figure-label"><span id="a-name"></span> (<span id="a-cm">0</span> cm)</div>
+    </div>
+  </div>
+
+  <div class="animal-selector">
+    <button class="select-btn" onclick="setAnimal('Luipaard', 70, 'luipaard2.png')">🐆 Luipaard</button>
+    <button class="select-btn" onclick="setAnimal('Leeuw', 120, 'lion.png')">🦁 Leeuw</button>
+    <button class="select-btn" onclick="setAnimal('Buffel', 160, 'buffel2.png')">🐃 Buffel</button>
+    <button class="select-btn" onclick="setAnimal('Rhino', 180, 'neushoorn2.png')">🦏 Rhino</button>
+    <button class="select-btn" onclick="setAnimal('Olifant', 330, 'holifant.png')">🐘 Olifant</button>
+  </div>
+</div>
+
+<script>
+function playSound(id){
+  const sounds = ['olifant','leeuw','buffel','luipaard','neushoorn'];
+  sounds.forEach(s => {
+    const a = document.getElementById(s);
+    if(a){ a.pause(); a.currentTime = 0; }
+  });
+  document.getElementById(id).play();
 }
+
+let questions = [
+  { question: "Wat doe je bij een groepsconflict?", answers: [{text: "Ik neem de leiding.", animal: "lion"}, {text: "Ik bemiddel rustig.", animal: "elephant"}, {text: "Ik negeer de drama.", animal: "leopard"}, {text: "Ik bescherm de groep.", animal: "buffalo"}, {text: "Ik wijk niet voor anderen.", animal: "rhino"}] },
+  { question: "Wat vinden mensen vaak van jou?", answers: [{text: "Dat ik zelfverzekerd ben", animal: "lion"}, {text: "Dat ik zorgzaam ben", animal: "elephant"}, {text: "Dat ik rustig en slim ben", animal: "leopard"}, {text: "Dat ik betrouwbaar ben", animal: "buffalo"}, {text: "Dat ik sterk en koppig ben", animal: "rhino"}] },
+  { question: "Jouw ideale vrije avond?", answers: [{text: "Op stap met vrienden", animal: "lion"}, {text: "Eten met familie.", animal: "elephant"}, {text: "Lekker alleen thuis.", animal: "leopard"}, {text: "Chillen met vrienden.", animal: "buffalo"}, {text: "Werken aan een hobby.", animal: "rhino"}] },
+  { question: "Wat past het best bij jou?", answers: [{text: "Leider", animal: "lion"}, {text: "Zorgzaam", animal: "elephant"}, {text: "Onafhankelijk", animal: "leopard"}, {text: "Teamspeler", animal: "buffalo"}, {text: "Doorzetter", animal: "rhino"}] },
+  { question: "Wat is jouw sterkste eigenschap?", answers: [{text: "Mijn uitstraling.", animal: "lion"}, {text: "Mijn geheugen.", animal: "elephant"}, {text: "Mijn zelfstandigheid.", animal: "leopard"}, {text: "Mijn loyaliteit.", animal: "buffalo"}, {text: "Mijn doorzettingsvermogen.", animal: "rhino"}] },
+  { question: "Wat vind jij het belangrijkst?", answers: [{text: "Respect krijgen.", animal: "lion"}, {text: "Tradities koesteren.", animal: "elephant"}, {text: "Mijn eigen vrijheid.", animal: "leopard"}, {text: "Veiligheid voor iedereen.", animal: "buffalo"}, {text: "Eerlijkheid boven alles.", animal: "rhino"}] }
+];
+
+let currentQ = 0, scores = {lion:0, elephant:0, leopard:0, buffalo:0, rhino:0};
+function showQ(){
+  let q = questions[currentQ];
+  let html = "<div class='question'><h3>" + q.question + "</h3>";
+  q.answers.forEach(a => { html += `<button class="button" style="margin:5px" onclick="ans('${a.animal}')">${a.text}</button>`; });
+  document.getElementById("quiz").innerHTML = html + "</div>";
+}
+function ans(animal){ scores[animal]++; currentQ++; if(currentQ < questions.length) showQ(); else showRes(); }
+function showRes(){
+  let best = "lion"; for(let a in scores){ if(scores[a] > scores[best]) best = a; }
+  let names = {lion: "🦁 Leeuw", elephant: "🐘 Olifant", leopard: "🐆 Luipaard", buffalo: "🐃 Buffel", rhino: "🦏 Neushoorn"};
+  document.getElementById("quiz").innerHTML = "";
+  document.getElementById("result").innerHTML = "Jij bent een <br><b>" + names[best] + "</b>";
+}
+
+let scale = 0.8;
+
+function updateUserHeight() {
+  const h = document.getElementById('user-height').value;
+  const fig = document.getElementById('user-figure');
+  if(h > 0) {
+    fig.style.display = 'flex';
+    document.getElementById('u-cm').innerText = h;
+    document.getElementById('user-img').style.height = (h * scale) + "px";
+  } else { fig.style.display = 'none'; }
+}
+
+function setAnimal(name, h, imgSrc) {
+  const fig = document.getElementById('animal-figure');
+  const img = document.getElementById('animal-img');
+  
+  let animalScale = 0.5; 
+  let animalShift = 0; 
+
+  if(name === 'Rhino') {
+    animalScale = 1.20; 
+    animalShift = -32; 
+  } else if(name === 'Leeuw') {
+    animalScale = 0.90; 
+    animalShift = -11; // Aangepast naar -35 zoals eerder besproken voor de lage positie
+  } else if(name === 'Olifant') {
+    animalScale = 1.02;
+    animalShift = -30;
+  } else if(name === 'Buffel') {
+    animalScale = 1.60;
+    animalShift = -7; // Buffel omlaag trekken naar de lijn
+  } else if(name === 'Luipaard') {
+    animalScale = 0.88;
+    animalShift = -3; // Luipaard omlaag trekken naar de lijn
+  }
+
+  fig.style.display = 'flex';
+  document.getElementById('a-name').innerText = name;
+  document.getElementById('a-cm').innerText = h;
+  img.src = imgSrc;
+  img.style.height = (h * animalScale) + "px";
+  img.style.marginBottom = animalShift + "px"; 
+}
+
+showQ();
 </script>
 </body>
 </html>

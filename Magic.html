@@ -112,7 +112,9 @@ h6 { margin: 20px; }
 
 <h6> Louka Andriessen</h6>
 
-<img src="big 4.png" alt="big 5" style="width:100%;height:auto;">
+<img src="big 5.png" alt="big 5" style="width:100%;height:auto;">
+<br>
+<br>
 <div class="sticky-row">
   <a href="index.html" class="button">Home</a>
   <a href="Fotos.html" class="button">Foto's</a>
@@ -166,7 +168,13 @@ h6 { margin: 20px; }
 <a href="https://www.w3schools.com/js/js_htmldom_css.asp">Grote verwijzing</a>
 <a href="https://www.w3schools.com/html/html_form_input_types.asp">Grote verwijzing</a>
 <a href="https://www.w3schools.com/js/js_arithmetic.asp">Grote verwijzing</a>
-<a href="https://www.w3schools.com/js/js_arithmetic.asp">Grote verwijzing</a>Grote verwijzing</a>
+<a href="https://www.w3schools.com/js/js_arithmetic.asp">Grote verwijzing</a>
+
+<div id="result-container">
+  <button id="restart-btn" onclick="herstartQuiz()">
+    <span class="arrow-icon">&#8634;</span> Herstarten
+  </button>
+</div>
 <script>
 function playSound(id){
   const sounds = ['olifant','leeuw','buffel','luipaard','neushoorn'];
@@ -180,7 +188,7 @@ function playSound(id){
 let questions = [
   { question: "Wat doe je bij een groepsconflict?", answers: [{text: "Ik neem de leiding.", animal: "lion"}, {text: "Ik bemiddel rustig.", animal: "elephant"}, {text: "Ik negeer de drama.", animal: "leopard"}, {text: "Ik bescherm de groep.", animal: "buffalo"}, {text: "Ik wijk niet voor anderen.", animal: "rhino"}] },
   { question: "Wat vinden mensen vaak van jou?", answers: [{text: "Dat ik zelfverzekerd ben", animal: "lion"}, {text: "Dat ik zorgzaam ben", animal: "elephant"}, {text: "Dat ik rustig en slim ben", animal: "leopard"}, {text: "Dat ik betrouwbaar ben", animal: "buffalo"}, {text: "Dat ik sterk en koppig ben", animal: "rhino"}] },
-  { question: "Jouw ideale vrije avond?", answers: [{text: "Op stap met vrienden", animal: "lion"}, {text: "Eten met familie.", animal: "elephant"}, {text: "Lekker alleen thuis.", animal: "leopard"}, {text: "Chillen met vrienden.", animal: "buffalo"}, {text: "Werken aan een hobby.", animal: "rhino"}] },
+  { question: "Jouw ideale vrije avond?", answers: [{text: "Op stap met vrienden.", animal: "lion"}, {text: "Eten met familie.", animal: "elephant"}, {text: "Lekker alleen thuis.", animal: "leopard"}, {text: "Chillen met vrienden.", animal: "buffalo"}, {text: "Werken aan een hobby.", animal: "rhino"}] },
   { question: "Wat past het best bij jou?", answers: [{text: "Leider", animal: "lion"}, {text: "Zorgzaam", animal: "elephant"}, {text: "Onafhankelijk", animal: "leopard"}, {text: "Teamspeler", animal: "buffalo"}, {text: "Doorzetter", animal: "rhino"}] },
   { question: "Wat is jouw sterkste eigenschap?", answers: [{text: "Mijn uitstraling.", animal: "lion"}, {text: "Mijn geheugen.", animal: "elephant"}, {text: "Mijn zelfstandigheid.", animal: "leopard"}, {text: "Mijn loyaliteit.", animal: "buffalo"}, {text: "Mijn doorzettingsvermogen.", animal: "rhino"}] },
   { question: "Wat vind jij het belangrijkst?", answers: [{text: "Respect krijgen.", animal: "lion"}, {text: "Tradities koesteren.", animal: "elephant"}, {text: "Mijn eigen vrijheid.", animal: "leopard"}, {text: "Veiligheid voor iedereen.", animal: "buffalo"}, {text: "Eerlijkheid boven alles.", animal: "rhino"}] }

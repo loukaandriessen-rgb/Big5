@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>The Big 5 Magic</title>
+</head>
 <style>
 body { background-color: rgb(247, 238, 204); margin: 0; padding: 0; }
 h6, h2, h3, .figure-label, #result, #quiz { font-family: sans-serif; }
@@ -44,6 +45,20 @@ h6 { margin: 20px; }
 .button:active {
   background-color: #ff8a05;
   transform: scale(0.87);   
+}
+
+
+.reset-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: transform 0.5s ease;
+  display: inline-block;
+}
+
+.reset-btn:hover {
+  transform: rotate(-180deg);
 }
 
 .animals-row { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
@@ -169,12 +184,6 @@ h6 { margin: 20px; }
 <a href="https://www.w3schools.com/html/html_form_input_types.asp">Grote verwijzing</a>
 <a href="https://www.w3schools.com/js/js_arithmetic.asp">Grote verwijzing</a>
 <a href="https://www.w3schools.com/js/js_arithmetic.asp">Grote verwijzing</a>
-
-<div id="result-container">
-  <button id="restart-btn" onclick="herstartQuiz()">
-    <span class="arrow-icon">&#8634;</span> Herstarten
-  </button>
-</div>
 <script>
 function playSound(id){
   const sounds = ['olifant','leeuw','buffel','luipaard','neushoorn'];
@@ -188,7 +197,7 @@ function playSound(id){
 let questions = [
   { question: "Wat doe je bij een groepsconflict?", answers: [{text: "Ik neem de leiding.", animal: "lion"}, {text: "Ik bemiddel rustig.", animal: "elephant"}, {text: "Ik negeer de drama.", animal: "leopard"}, {text: "Ik bescherm de groep.", animal: "buffalo"}, {text: "Ik wijk niet voor anderen.", animal: "rhino"}] },
   { question: "Wat vinden mensen vaak van jou?", answers: [{text: "Dat ik zelfverzekerd ben", animal: "lion"}, {text: "Dat ik zorgzaam ben", animal: "elephant"}, {text: "Dat ik rustig en slim ben", animal: "leopard"}, {text: "Dat ik betrouwbaar ben", animal: "buffalo"}, {text: "Dat ik sterk en koppig ben", animal: "rhino"}] },
-  { question: "Jouw ideale vrije avond?", answers: [{text: "Op stap met vrienden.", animal: "lion"}, {text: "Eten met familie.", animal: "elephant"}, {text: "Lekker alleen thuis.", animal: "leopard"}, {text: "Chillen met vrienden.", animal: "buffalo"}, {text: "Werken aan een hobby.", animal: "rhino"}] },
+  { question: "Jouw ideale vrije avond?", answers: [{text: "Op stap met vrienden", animal: "lion"}, {text: "Eten met familie.", animal: "elephant"}, {text: "Lekker alleen thuis.", animal: "leopard"}, {text: "Chillen met vrienden.", animal: "buffalo"}, {text: "Werken aan een hobby.", animal: "rhino"}] },
   { question: "Wat past het best bij jou?", answers: [{text: "Leider", animal: "lion"}, {text: "Zorgzaam", animal: "elephant"}, {text: "Onafhankelijk", animal: "leopard"}, {text: "Teamspeler", animal: "buffalo"}, {text: "Doorzetter", animal: "rhino"}] },
   { question: "Wat is jouw sterkste eigenschap?", answers: [{text: "Mijn uitstraling.", animal: "lion"}, {text: "Mijn geheugen.", animal: "elephant"}, {text: "Mijn zelfstandigheid.", animal: "leopard"}, {text: "Mijn loyaliteit.", animal: "buffalo"}, {text: "Mijn doorzettingsvermogen.", animal: "rhino"}] },
   { question: "Wat vind jij het belangrijkst?", answers: [{text: "Respect krijgen.", animal: "lion"}, {text: "Tradities koesteren.", animal: "elephant"}, {text: "Mijn eigen vrijheid.", animal: "leopard"}, {text: "Veiligheid voor iedereen.", animal: "buffalo"}, {text: "Eerlijkheid boven alles.", animal: "rhino"}] }
@@ -202,11 +211,23 @@ function showQ(){
   document.getElementById("quiz").innerHTML = html + "</div>";
 }
 function ans(animal){ scores[animal]++; currentQ++; if(currentQ < questions.length) showQ(); else showRes(); }
+
 function showRes(){
   let best = "lion"; for(let a in scores){ if(scores[a] > scores[best]) best = a; }
   let names = {lion: "🦁 Leeuw", elephant: "🐘 Olifant", leopard: "🐆 Luipaard", buffalo: "🐃 Buffel", rhino: "🦏 Neushoorn"};
   document.getElementById("quiz").innerHTML = "";
-  document.getElementById("result").innerHTML = "Jij bent een <br><b>" + names[best] + "</b>";
+  
+  document.getElementById("result").innerHTML = "Jij bent een <br><b>" + names[best] + "</b><br>" + 
+    "<button class='reset-btn' onclick='resetQuiz()'>" +
+    "<svg width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M23 4v6h-6'></path><path d='M20.49 15a9 9 0 1 1-2.12-9.36L23 10'></path></svg>" +
+    "</button>";
+}
+
+function resetQuiz() {
+  currentQ = 0;
+  scores = {lion:0, elephant:0, leopard:0, buffalo:0, rhino:0};
+  document.getElementById("result").innerHTML = "";
+  showQ();
 }
 
 let scale = 0.8;
@@ -233,16 +254,16 @@ function setAnimal(name, h, imgSrc) {
     animalShift = -32; 
   } else if(name === 'Leeuw') {
     animalScale = 0.90; 
-    animalShift = -11; // Aangepast naar -35 zoals eerder besproken voor de lage positie
+    animalShift = -11; 
   } else if(name === 'Olifant') {
     animalScale = 1.02;
     animalShift = -30;
   } else if(name === 'Buffel') {
     animalScale = 1.60;
-    animalShift = -7; // Buffel omlaag trekken naar de lijn
+    animalShift = -7; 
   } else if(name === 'Luipaard') {
     animalScale = 0.88;
-    animalShift = -3; // Luipaard omlaag trekken naar de lijn
+    animalShift = -3; 
   }
 
   fig.style.display = 'flex';
